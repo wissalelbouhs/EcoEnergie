@@ -4,7 +4,7 @@ import React from 'react'
 export default function Carousel() {
   return (
     <View>
-      <Text>Bonjour</Text>
+      <Text>Carousel</Text>
     </View>
   )
 }
