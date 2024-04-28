@@ -17,10 +17,12 @@ export default function PanneauSolaireScreen() {
     }, [])
     return (
         <GestureHandlerRootView>
+           
             <FlatList
                 data={solarPanels}
                 renderItem={({ item }) => <SolarPanel item={item} />}
             />
+            
         </GestureHandlerRootView>
     )
 }
