@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { FlatList, GestureHandlerRootView, NativeViewGestureHandler } from 'react-native-gesture-handler';
+import { FlatList, GestureHandlerRootView } from 'react-native';
 import SolarPanel from '../components/SolarPanel';
 
 export default function PanneauSolaireScreen() {

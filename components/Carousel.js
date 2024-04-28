@@ -1,6 +1,6 @@
-import { View, Text, Dimensions } from 'react-native'
+import { View, Text, Dimensions ,Image} from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 import { height } from '@fortawesome/free-solid-svg-icons/fa0';
 
 const Carousel =() =>{
@@ -50,7 +50,7 @@ const Carousel =() =>{
 const renderItem = ({item,index})=>{
   return(
     <View>
-      <Image source={item.image} style={{height:200,width:screenWidth}}/>
+      <Image source={item.image} style={{height:400,width:screenWidth}}/>
     </View>
   )
 };
@@ -72,7 +72,7 @@ const renderDoIndicators =() =>{
           <View 
           key ={index}
           style={{
-            backgroundColor:"green",
+            backgroundColor:"yellow",
             height:10,
             width:10,
             borderRaduis:5,
@@ -88,10 +88,10 @@ const renderDoIndicators =() =>{
       <View 
       key ={index}
       style={{
-        backgroundColor:"red",
+        backgroundColor:"#5784BA",
         height:10,
         width:10,
-        borderRaduis:5,
+        borderRaduis:4,
         marginHorizontal:6,
         }}
         >
