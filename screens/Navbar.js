@@ -37,7 +37,12 @@ export default function Navbar() {
                     }
                     return <Ionicons name={iconName} size={30} color={color} />;
                 },
-                headerShown: false,
+                // headerShown: false,
+                headerTitleAlign:"center",
+                headerTintColor:"white",
+                headerStyle:{
+                    backgroundColor:'#3E65F9'
+                },
                 tabBarStyle: {
                     height: 60,
                     position: "absolute",

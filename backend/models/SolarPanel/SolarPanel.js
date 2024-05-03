@@ -1,19 +1,15 @@
-
-
-class SolarPanel   {
-    constructor(id, model, capacity, voltage, etat, name, manufacturer, efficiency, width, height, installationDate) {
-       
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.efficiency = efficiency; // as a percentage
-        this.width = width; // in meters or inches
-        this.height = height; // in meters or inches
-        this.installationDate = installationDate; // Date object
-        this.id=id
-        this.model=model
-        this.capacity=capacity
-        this.voltage=voltage
-        this.etat=etat
+class SolarPanel {
+    constructor(id, etat, marque, model, capacity, efficiency, width, height, installationDate, battrie) {
+        this.id = id;
+        this.etat = etat;
+        this.marque = marque;
+        this.model = model;
+        this.capacity = capacity;
+        this.efficiency = efficiency;
+        this.width = width;
+        this.height = height;
+        this.installationDate = installationDate;
+        this.battrie = battrie; // Assuming battrie is an object with properties like id, model, capacityMax, etc.
     }
 }
 

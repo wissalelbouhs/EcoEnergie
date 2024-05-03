@@ -1,10 +1,14 @@
 import React from 'react';
-import AppNavigation from './navigation/appNavigation';
+import Navbar from './screens/Navbar';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App(){
+export default function App() {
 
-return(
-  <AppNavigation/>
-)
+  return (
+    // <AppNavigation/>
+    <NavigationContainer>
+      <Navbar />
+    </NavigationContainer>
+  )
 
 }

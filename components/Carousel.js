@@ -35,11 +35,11 @@ const Carousel =() =>{
    const carouselData =[
      {
       id:"01",
-      image: require("../assets/panneau.jpg"),
+      image: require("../assets/carousel.jpeg"),
      },
      {
      id:"02",
-     image: require("../assets/panneau.jpg"),
+     image: require("../assets/carousel.jpeg"),
      },
      {
       id:"03",
@@ -56,8 +56,6 @@ const renderItem = ({item,index})=>{
 };
 const handleScroll =(event)=>{
   const scrollPosition = event.nativeEvent.content0ffset.x;
-  console.log({scrollPosition});
-
   const index =scrollPosition/screenWidth;
   console.log(index);
   setActiveIndex(index);

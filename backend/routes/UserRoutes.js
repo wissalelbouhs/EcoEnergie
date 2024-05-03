@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserDAO = require('../models/User/UserDao.js');
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
     const { firstname, lastname, email, password } = req.body;
     const newUser = new User(null, firstname, lastname, email, password); 
     try {
@@ -12,8 +12,30 @@ router.post('/users', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
-
-router.put('/users/:id', async (req, res) => {
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    
+    try {
+        const userId = await UserDAO.login(email,password);
+        res.status(201).json({ id: userId });
+    } catch (error) {
+        console.error('Error creating user:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+router.post('/register', async (req, res) => {
+    const { firstname, lastname, email, password } = req.body;
+    const newUser = { firstname, lastname, email, password };
+  
+    try {
+      const userId = await UserDAO.registerUser(newUser);
+      res.status(201).json({ message: 'Registration successful', userId });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+router.put('/:id', async (req, res) => {
     const userId = req.params.id;
     const { firstname, lastname, email, password } = req.body;
     const updatedUser = new User(userId, firstname, lastname, email, password);
@@ -30,7 +52,7 @@ router.put('/users/:id', async (req, res) => {
     }
 });
 
-router.delete('/users/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const userId = req.params.id;
     try {
         const success = await UserDAO.deleteUser(userId);
@@ -44,3 +66,26 @@ router.delete('/users/:id', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+router.post('/register', async (req, res) => {
+    const { firstname, lastname, email, password } = req.body;
+    const newUser = { firstname, lastname, email, password };
+  
+    try {
+      const userId = await UserDao.registerUser(newUser);
+      res.status(201).json({ message: 'Registration successful', userId });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+  router.get('/takeDecision/:need', async (req, res) => {
+    const  need  = req.params.need; // Assuming you're sending the 'need' parameter in the request body
+
+    try {
+        const message = await UserDAO.takeDecision(need);
+        res.status(200).json({ message });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+module.exports = router;
